@@ -4,10 +4,10 @@ import React from "react";
 class UserInfo extends React.Component {
 
     render(){
-        console.log(this.props.info)
         return(
             <div>
-                <h1>Name: {this.props.info.name}</h1>
+                <img src={this.props.info.avatar_url} alt={this.props.info.avatar_url} />
+                <h2>Name: {this.props.info.login}</h2>
             </div>
         )
     }

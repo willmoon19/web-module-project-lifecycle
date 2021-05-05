@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import './App.css';
 import UserInfo from "./userInfo";
+import FollowerInfo from "./usersInfo";
 
 class App extends React.Component {
   state = {
@@ -23,7 +24,9 @@ class App extends React.Component {
 
       axios.get("https://api.github.com/users/willmoon19/followers")
       .then(res => {
-        console.log(res)
+        this.setState({
+          followers: res.data
+        })
       })
       .catch(err => {
         console.log(err)
@@ -43,6 +46,7 @@ class App extends React.Component {
           <button>Submit</button>
         </form>
         <UserInfo info={this.state.user} />
+        <FollowerInfo followersData={this.state.followers} />
       </div>
     );
   }
